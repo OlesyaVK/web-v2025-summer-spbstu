@@ -24,30 +24,18 @@ class Programmer {
         return this.languages.length;
     }
 }
-/*
-let programmers = [];
-
-let test = new Programmer(1, 'Test', ['f', 'f']);
-test.addLanguage('rr');
-test.addLanguage('aa');
-test.addLanguage('tt');
-test.addLanguage('rr');
-console.log(test.languages);
-test.removeLanguage('rr');
-test.removeLanguage('ff');
-test.languages = ['n', 'm'];
-//console.log(test.languages);
-//console.log(test.languageCount);
-*/
 
 
 //work with interface
 //localStorage.clear();
 renderCards();
+
 //Временные значения формы создания программиста
 let language_list = [];
 
 let button_add_programmer = document.querySelector('#add_programmer');
+//let button_remove_programmer = document.querySelector('.remove_programmer');
+//console.log(button_remove_programmer);
 let button_add_language = document.querySelector('#add_language');
 let button_remove_language = document.querySelector('#remove_language');
 
@@ -55,6 +43,13 @@ button_add_programmer.addEventListener('click', function(event) {
     event.preventDefault(); // Предотвращает отправку формы
     createProgrammer();
 });
+/*
+if (button_)
+button_remove_proggramer.addEventListener('click', function(event) {
+    event.preventDefault(); // Предотвращает отправку формы
+    console.log("REMOVE");
+});
+*/
 button_add_language.addEventListener('click', function(event) {
     event.preventDefault();
     addLanguageToList();
@@ -93,7 +88,6 @@ function removeLanguageFromList() {
         }
         let language_counter = document.querySelector('#language_counter');
         language_counter.value = language_list.length;
-        //console.log(language_list);
     }
 }
 function createProgrammer() {
@@ -111,7 +105,6 @@ function createProgrammer() {
             localStorage.setItem('programmers', JSON.stringify([new_programmer]));
         } else {
             let programmers = JSON.parse(localStorage.getItem('programmers'));
-            //console.log(programmers);
             for (let programmer of programmers) {
                 let pr_id = programmer.id;
                 if (pr_id >= new_id) {
@@ -123,21 +116,7 @@ function createProgrammer() {
             localStorage.setItem('programmers', JSON.stringify(programmers));
         }
         alert(localStorage.getItem('programmers'));
-        //поиск нового id
-        /*
-        if (localStorage.length != 0) {
-            for (let i = 0; i < localStorage.length; i++) {
-                let key = Number(localStorage.key(i));
-                if (key >= new_id) {
-                    new_id = key + 1;
-                }
-            }
-            console.log(new_id);
-        }
-        let content = {name: name, languages: language_list};
-        localStorage.setItem(String(new_id), JSON.stringify(content));
-        console.log(localStorage.getItem(String(new_id)));
-        */
+
         //Отчищение формы
         input_name.value = '';
         let input_language = document.querySelector('#input_language');
@@ -168,7 +147,28 @@ function renderCards() {
                 card_language_list.append(li);
             }
             template_content.querySelector('.amount').textContent = "Количество языков: " + programmer.languages.length;
+
+            let button_remove_programmer = template_content.querySelector('.remove_programmer');
+            button_remove_programmer.addEventListener('click', function(event) {
+                event.preventDefault();
+                removeProgrammer(programmer.id);
+            });
+
             cards_area.appendChild(template_content);
         }
+    }
+}
+
+function removeProgrammer(id) {
+    if (localStorage.key('programmers') != null) {
+        let programmers = JSON.parse(localStorage.getItem('programmers'));
+        for (let i = 0; i < programmers.length; i++) {
+            if (programmers[i].id == id) {
+                programmers.splice(i, 1);
+                break;
+            }
+        }
+        localStorage.setItem('programmers', JSON.stringify(programmers));
+        renderCards();
     }
 }
