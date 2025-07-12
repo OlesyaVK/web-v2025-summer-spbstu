@@ -44,6 +44,9 @@
             text-align: center;
             margin-top: 30px;
         }
+        #language_counter {
+            width: 40px;
+        }
         
     </style>
   </head>
@@ -54,19 +57,18 @@
             <label for="input_name">Имя:</label>
             <input id="input_name" type="text">
             <br>
+            
             <label for="input_language">Язык:</label>
             <input id="input_language" type="text">
             <button id="add_language">Добавить язык</button>
-            <button id="delete_language">Удалить язык</button>
+            <button id="remove_language">Удалить язык</button>
             
             <div id="languages_field">
-                <ol id="language_list">
-                    <li>test</li>
-                </ol>
+                <ol id="language_list"></ol>
             </div>
             
             <label for="language_counter">Количество языков:</label>
-            <input id="language_counter" type="text">
+            <input id="language_counter" type="text" value="0" readonly>
             <div id="button_add_programmer">
             <button id="add_programmer">Добавить программиста</button>
             </div>
