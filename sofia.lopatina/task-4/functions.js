@@ -33,8 +33,7 @@ function groupByLanguages(programmers) {
 
 function findUniqueLanguages(programmers) {
     let all_languages = programmers.map(function(programmer) {
-        let languages = programmer.languages;
-        return languages;
+        return programmer.languages;
     });
     return new Set([].concat(...all_languages));
 }

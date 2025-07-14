@@ -25,7 +25,6 @@ class Programmer {
     }
 }
 
-//work with interface
 renderCards();
 
 let language_list = [];
@@ -161,7 +160,7 @@ function getProgrammers() {
             } else {
                 resolve(JSON.parse(programmers));
             }
-        }, 200);
+        }, 100);
     });
 }
 
@@ -170,6 +169,6 @@ function setProgrammers(programmers) {
         setTimeout(function() {
             localStorage.setItem('programmers', JSON.stringify(programmers));
             resolve();
-        }, 200);
+        }, 100);
     });
 }
