@@ -1,0 +1,42 @@
+.center {
+    display: flex;
+    justify-content: center;
+}
+.card {
+    border-radius: 10px;
+    background-color: #e0f7fa;
+    margin: 10px;
+    padding: 10px;
+    width: 270px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.card h1 {
+    text-align: center;
+}
+.card button {
+    border-radius: 10px;
+    padding: 5px;
+    border: none;
+    background-color: #00796b;
+    color: white;
+    margin-top: 5px;
+}
+.card input {
+    margin-bottom: 5px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #00796b;
+    box-sizing: border-box;
+}
+.spacer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+#travels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}

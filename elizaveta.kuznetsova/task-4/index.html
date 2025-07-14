@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Travel Log</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="travel.js"></script>
+    <script src="functions.js"></script>
+    <script src="interface.js" defer></script>
+</head>
+<body>
+    <div class="center">
+        <div class="card">
+            <h1>Новое путешествие</h1>
+            <form id="newTravelForm">
+                <label>Имя путешественника: <input id="name" type="text"></label><br>
+                <button id="addTravel">Добавить путешествие</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="travels"></div>
+
+    <template id="travelCard">
+        <div class="card">
+            <h1></h1>
+            Страны:<br>
+            <ol></ol>
+            <input placeholder="Страна"><button>Добавить страну</button>
+            <button>Удалить путешествие</button>
+        </div>
+    </template>
+
+    <template id="travelCardItem">
+        <li>
+            <div class="spacer">
+                <button>Удалить</button>
+            </div>
+        </li>
+    </template>
+</body>
+</html>
